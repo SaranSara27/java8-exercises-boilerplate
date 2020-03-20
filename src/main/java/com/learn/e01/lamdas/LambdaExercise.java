@@ -96,8 +96,7 @@ public class LambdaExercise {
 	 * (Use Comparator's static/default methods)
 	 */
 	private static void sortCountriesBylength() {
-		Comparator<String> comparator = Comparator.comparing(c1->c1.length());
-		Collections.sort(countries, comparator);
+		countries.sort(Comparator.comparing(String::length).reversed().thenComparing(String::toString));
 		countries.forEach(country->log.debug(country));
 		
 	}
